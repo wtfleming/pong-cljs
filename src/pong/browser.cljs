@@ -283,8 +283,8 @@
           (swap! state update-in [:player-two-score] inc)
           (swap! state update-in [:ball] #(mk-ball :player-one))))
 
-      (swap! state assoc :last-frame-time now)
-      (draw-scene)))
+      (swap! state assoc :last-frame-time now)))
+  (draw-scene)
   (request-animation-frame! update!))
 
 ;; If the user changes tabs we want to pause the game
