@@ -304,6 +304,9 @@
     (handle-document-visible!)))
 
 (defn handle-start-button-click [_event]
+  ;; Reset the time so we don't get a potentially
+  ;; large delta time on the first frame
+  (swap! state assoc :last-frame-time (.getTime (js/Date.)))
   (swap! state assoc :playing? true))
 
 ;; start is called by init and after code reloading finishes
